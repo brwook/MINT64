@@ -1,4 +1,6 @@
 #include "Utility.h"
+#include "AssemblyUtility.h"
+
 void kmemset(void *pvDestination, BYTE bData, int iSize)
 {
 	int i;
@@ -33,3 +35,19 @@ int kmemcmp(const void *pvDestination, const void *pvSource, int iSize)
 	return 0;
 }
 
+BOOL kSetInterruptFlag(BOOL bEnableInterrupt)
+{
+	QWORD qwRFLAGS;
+	qwRFLAGS = kReadRFLAGS();
+	if(bEnableInterrupt == TRUE)
+		kEnableInterrupt();
+	
+	else
+		kDisableInterrupt();
+	
+	// Check previous IF bit of RFLAGS and return status
+	if (qwRFLAGS & 0x0200)
+		return TRUE;
+
+	return FALSE;
+}

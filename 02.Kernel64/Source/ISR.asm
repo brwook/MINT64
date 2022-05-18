@@ -307,7 +307,7 @@ kISRKeyboard:
 	KSAVECONTEXT
 
 	mov rdi, 33
-	call kCommonInterruptHandler
+	call kKeyboardHandler
 
 	KLOADCONTEXT
 	iretq
