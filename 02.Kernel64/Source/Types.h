@@ -13,9 +13,9 @@
 typedef struct kCharacterStruct
 { 
 	BYTE bCharacter;
-	BYTE bAtribute;
+	BYTE bAttribute;
 } CHARACTER;
 #pragma pack( pop )
 
-void kPrintString(int iX, int iY, const char *pcString);
+void kPrintStringXY(int iX, int iY, const char *pcString);
 #endif

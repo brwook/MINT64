@@ -1,8 +1,8 @@
 #include "Descriptor.h"
 #include "Utility.h"
 #include "ISR.h"
+#include "Console.h"
 
-void kPrintString(int iX, int iY, const char *pcString);
 void kInitializeGDTTableAndTSS()
 {
 	GDTR *pstGDTR;
@@ -165,10 +165,10 @@ void kSetIDTEntry(IDTENTRY *pstEntry, void *pvHandler, WORD wSelector, BYTE bIST
 
 void kDummyHandler()
 {
-	kPrintString(0, 0, "====================================================");
-	kPrintString(0, 1, "        Dummy Interrupt Handler Executed            ");
-	kPrintString(0, 2, "          Interrupt or Exception Occur!             ");
-	kPrintString(0, 3, "====================================================");
+	kPrintStringXY(0, 0, "====================================================");
+	kPrintStringXY(0, 1, "        Dummy Interrupt Handler Executed            ");
+	kPrintStringXY(0, 2, "          Interrupt or Exception Occur!             ");
+	kPrintStringXY(0, 3, "====================================================");
 	while(1);
 }
 

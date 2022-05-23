@@ -13,7 +13,7 @@
 typedef struct kCharacterStruct
 { 
 	BYTE bCharacter;
-	BYTE bAtribute;
+	BYTE bAttribute;
 } CHARACTER;
 #pragma pack( pop )
 #endif
